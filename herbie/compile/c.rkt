@@ -5,7 +5,7 @@
 (require "../reports/datafile.rkt")
 (require net/uri-codec)
 
-(provide compile-info)
+(provide compile-info compile-all)
 
 (define (fix-name name)
   (string-replace (uri-encode (~a name)) #rx"[^a-zA-Z0-9]" "_"))
