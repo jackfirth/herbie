@@ -13,9 +13,9 @@ git pull --quiet
 
 make --quiet --directory=randTest
 java -classpath randTest/ RandomTest \
-  --size   5 \
-  --nvars  3 \
-  --ntests 5 \
+  --size  5 --size-wiggle  5 \
+  --nvars 1 --nvars-wiggle 3 \
+  --ntests 10 \
   > "$HERBROOT/bench/random.rkt"
 
 function run {
@@ -32,7 +32,7 @@ for b in $HERBROOT/bench/*; do
   name=$(basename "$b" .rkt)
   # skip some massive or misbehaving benchmarks
   case $name in
-    haskell|mathematics|numerics|regression)
+    haskell)
       continue
       ;;
   esac
